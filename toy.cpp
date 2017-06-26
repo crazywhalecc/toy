@@ -75,6 +75,5 @@ int main()
 		}
 	}
 	cout<<p[origin].name<<endl;
-	system("pause");
     return 0;
 } 
