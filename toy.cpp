@@ -1,14 +1,12 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
 using namespace std;
-struct People
+struct
 {
 	int toward;
 	char name[15];
-	int ID;
 }p[100000];
-struct Cmd
+struct
 {
 	int turn;
 	int step;
@@ -23,7 +21,6 @@ int main()
 	{
 		cin>>p[i].toward;
 		cin>>p[i].name;
-		p[i].ID=i;
 	}
 	for(j=0;j<=m-1;j++)
 	{
@@ -35,7 +32,7 @@ int main()
 		switch(c[k].turn)
 		{
 			case 0:
-				switch(p[origin].turn)
+				switch(p[origin].toward)
 				{
 					case 0:
 						origin=origin-c[k].step;
@@ -51,10 +48,12 @@ int main()
 							origin-=n;
 						}
 						break;
+                    default:
+                        break;
 				}
 				break;
 			case 1:
-				switch(p[origin].turn)
+				switch(p[origin].toward)
 				{
 					case 0:
 						origin=origin+c[k].step;
@@ -70,8 +69,12 @@ int main()
 							origin+=n;
 						}
 						break;
+                    default:
+                        break;
 				}
 				break;
+            default:
+                break;
 		}
 	}
 	cout<<p[origin].name<<endl;
